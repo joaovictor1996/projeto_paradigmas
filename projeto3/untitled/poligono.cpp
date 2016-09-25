@@ -62,12 +62,12 @@ void Poligono::move(float a, float b){//função que desloca o poligono
 
 void Poligono::rotaciona(float x0, float y0, float ang){
     int i;
-    move(x0,y0);
-    //ang = (PI*ang)/180;
+    //move(x0,y0);
+    ang = (PI*ang)/180;
     for(i=0;i<n;i++){
-        V[i].setXY((V[i].getX()*cos(ang) - V[i].getY()*sin(ang)) + x0, (V[i].getX()*sin(ang)+   V[i].getY()*cos(ang)) + y0);
+        V[i].setXY((V[i].getX()*cos(ang) - V[i].getY()*sin(ang)) + x0, (V[i].getX()*sin(ang) + V[i].getY()*cos(ang)) + y0);
         if(i==0){
-            V[n].setXY((V[i].getX()*cos(ang) - V[i].getY()*sin(ang)) + x0, (V[i].getX()*sin(ang)+V[i].getY()*cos(ang)) + y0);
+            V[n].setXY(V[i].getX(), V[i].getY());
         }
     }
 }

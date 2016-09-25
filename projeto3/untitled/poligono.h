@@ -2,7 +2,6 @@
 #define POLIGONO_H
 #include "ponto.h"
 
-
 class Poligono
 {
     int n; //numero de vertices
