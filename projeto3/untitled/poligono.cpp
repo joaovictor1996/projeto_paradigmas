@@ -9,10 +9,14 @@ Poligono::Poligono(int g){
     n=g;
     int i;
     float _x,_y;
+    /*encerra o programa caso numero de vertices
+     * ultrapasse o limite
+     */
     if(n>100){
         cout<<"valor invalido"<<endl;
         exit(0);
     }
+    //declarando as coordenadas x y do poligono
     for(i=0;i<n;i++){
         cout<<"digite o valor de x:";
         cin>>_x;
@@ -25,11 +29,11 @@ Poligono::Poligono(int g){
     }
 }
 
-int Poligono::nVertices(void){
+int Poligono::nVertices(void){   // retornando o numero de vertices
     return n;
 }
 
-float Poligono::area(void){
+float Poligono::area(void){  //função que calcula area do poligono
     int i;
     float a=0,soma=0;
 
@@ -42,14 +46,14 @@ float Poligono::area(void){
         return a;
     }
     if(a<0){
-        return -a;
+        return -a;    // caso valor for negativo retorna positivo
     }
 }
 
-void Poligono::move(float a, float b){
+void Poligono::move(float a, float b){//função que desloca o poligono
     int i;
     for(i=0;i<n;i++){
-        V[i].translada(a,b);
+        V[i].translada(a,b);    // utilizando translada da classe ponto
         if(i==0){
             V[n].translada(a,b);
         }
@@ -68,7 +72,7 @@ void Poligono::rotaciona(float x0, float y0, float ang){
     }
 }
 
-void Poligono::imprimeAresta(){
+void Poligono::imprimeAresta(){ //imprime direcionamento dos pontos(arestas)
     int i;
     for(i=0;i<=n;i++){
         V[i].imprime();
